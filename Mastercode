@@ -1,0 +1,14 @@
+#include<Wire.h>
+int x;
+void setup() {
+  Wire.begin(); 
+  Serial.begin(9600);
+}
+void loop() {
+  x = analogRead(A0);
+  x/=4;
+  Wire.beginTransmission(8);
+  Wire.write(x);          
+  Wire.endTransmission();  
+  delay(1000);
+} 
